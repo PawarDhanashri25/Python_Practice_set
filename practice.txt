@@ -1,0 +1,4 @@
+item#quantity#price
+Soap#10#20.0
+Colgate#12#40
+Brush#16#30

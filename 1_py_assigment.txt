@@ -1,0 +1,38 @@
+movies = []
+
+def add_movie():
+    #fill your code here
+    movie={}
+    movie['name']=input("Enter the movie name:\n")
+    movie['director']=input("Enter the movie director:\n")
+    movie['year']=int(input("Enter the movie release year:\n"))
+    movies.append(movie)
+
+def show_movie_details(movie):
+    print("Name: {}".format(movie['name']))
+    print("Director: {}".format(movie['director']))
+    print("Release year: {}".format(movie['year']))
+
+def find_movie(expected, finder):
+    #fill your code here
+    for movie in movies:
+        if finder(movie)==expected:
+            return movie
+    return None
+
+
+n = int(input("Enter the number of movies:\n"))
+for i in range(n):
+    print("Enter details of movie {}:".format(i+1))
+    add_movie()
+property_name = input("What property of the movie is that?\n")
+property_value = input("What are you looking for?\n")
+if property_name=='year':
+    property_value=int(property_value)
+result_movies = find_movie(property_value,lambda x: x[property_name])
+if result_movies:
+    print("Movie Details:")
+    show_movie_details(result_movies)
+else:
+    print("\nNo movies found.")
+
